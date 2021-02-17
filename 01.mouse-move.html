@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mouse Move</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+    }
+    h1 {
+      color: #fff;
+    }
+    .cursor_item {
+      position: absolute;
+      width : 100px;
+      height : 100px;
+      border-radius: 50%;
+      background-color: darkgreen;
+      top:0;
+      left:0;
+      transform: translate();
+    }
+  </style>
+</head>
+<body>
+  <h1>Mouse Move</h1>
+  <div class="cursor_item"></div>
+  <script>
+    // 화면이 다 렌더링된 후에 실행시키도록
+    window.onload = function() {
+      let h1 = document.getElementsByTagName('h1')[0];
+      let cursor_item = document.querySelector('.cursor_item');
+      window.addEventListener('mousemove', mouseFunc, false);
+      
+      // 마우스를 움직이면 이벤트가 일어납니다.
+      function mouseFunc(e) {
+        h1.innerHTML = "x : " +e.clientX+ " y: " + e.clientY; 
+        cursor_item.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)"; 
+      }
+    }
+  </script>
+</body>
+</html>
+
+<!-- 
+  마우스 제어
+  마우스 위치에 따라 오브젝트가 따라오게 하기
+ -->
